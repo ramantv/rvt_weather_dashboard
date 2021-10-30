@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>A Weather Dashboard App by Raman TV</title>
 </head>
+
 <body>
+    <!--- Header -->
+    <header id="dashboard-header" class="navbar navbar-dark bg-primary text-center">
+        <span class="navbar-dark mb-0 w-100 h1 text-white">Weather Dashboard</span>
+    </header>
+
+    <!--- Container for body -->
+    <section id="dashboard-section" class="container-fluid">
+        <div class="row">
+
+            <!-- search column -->
+            <div class="col-md-3 bg-light mt-3">
+
+                <p class="search-instruction my-1">Search for a city: </p>
+
+                <!-- input section -->
+                <form id="city-input-form">
+                    <div class="input-group">
+                        <input id="enter-city" type="text" class="form-control" placeholder="Enter city name" aria-label="Enter city name">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit" id="search-city-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- End input section -->
     
+                <!-- Search history section -->
+                <div id="search-history" class="mt-3">
+                    <!-- Add search history buttons-->
+                </div>
+
+            </div>
+
+            <!--- column/container for Weather details for selected City  -->
+            <div class="col-md-9 mt-2">
+                <div class="row">
+                    <div id="current-city-container">
+                        <!-- Display current weather data here -->
+                    </div>
+                </div>
+                
+                <!--- 5-day forecast container-->
+                <h3 id="five-day" class="mt-1"></h3>
+                <div id="forecast-container" class="row"></div>
+            </div> 
+
+        </div>
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
