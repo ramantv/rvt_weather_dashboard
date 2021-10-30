@@ -13,4 +13,4 @@ This application provides the current weather conditions and 5-day forecast for 
 * [OpenWeather API](https://openweathermap.org/api)
 
 ## Deployed Application
-[Weather Dashboard](https://ramantv.github.io/rvt_weather_dashboard/)
+* [Weather Dashboard](https://ramantv.github.io/rvt_weather_dashboard/)
