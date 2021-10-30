@@ -96,8 +96,6 @@ function getWeatherData(city) {
                 console.log(foreData);
 
                 cityWeatherData["forecastData"] = foreData;
-                //displayCurrentData(city, data);
-                //displayForecastData(data);
               })
               .then (saveSearchedCity)
               .then (displayCurrentweatherData)
@@ -111,7 +109,7 @@ function getWeatherData(city) {
     } else {
       //if city name is invalid return error message
       alert("Current Weather Info not found for City: " + city);
-      // cityFormEl.reset();
+      cityFormEl.reset();
     }
   });
 }
@@ -221,12 +219,13 @@ var displayForecastData = function() {
   //for loop for five day forecast
   for (var i=1; i < 6; i++) {
       var tempForecast = Math.round(data.daily[i].temp.day);
+      var windForecast = data.daily[i].wind_speed;
       var humidityForecast = data.daily[i].humidity;
       var iconForecast = data.daily[i].weather[0].icon;
   
   //create card elements and data elements for weather data
   var cardEl = document.createElement("div");
-  cardEl.setAttribute("class","card col-xl-2 col-md-5 col-sm-10 mx-3 my-2 bg-primary text-white text-center");
+  cardEl.setAttribute("class","card col-xl-2 col-md-5 col-sm-10 mx-3 my-2 bg-dark text-white text-left");
 
   var cardBodyEl = document.createElement("div");
   cardBodyEl.setAttribute("class","card-body");
@@ -239,17 +238,22 @@ var displayForecastData = function() {
 
   var cardTempEl = document.createElement("p");
   cardTempEl.setAttribute("class", "card-text");
-  cardTempEl.textContent = "Temperature:  " + tempForecast + "°F";
+  cardTempEl.textContent = "Temp:  " + tempForecast + "°F";
+
+  var cardWindEl = document.createElement("p");
+  cardWindEl.setAttribute("class", "card-text");
+  cardWindEl.textContent = "Wind:  " + windForecast + " MPH";
 
   var cardHumidEl = document.createElement("p")
   cardHumidEl.setAttribute("class", "card-text");
   cardHumidEl.textContent = "Humidity:  " + humidityForecast + "%";
   
   //append children to card body
-  cardBodyEl.appendChild(cardDateEl)
-  cardBodyEl.appendChild(cardIconEl)
-  cardBodyEl.appendChild(cardTempEl)
-  cardBodyEl.appendChild(cardHumidEl)
+  cardBodyEl.appendChild(cardDateEl);
+  cardBodyEl.appendChild(cardIconEl);
+  cardBodyEl.appendChild(cardTempEl);
+  cardBodyEl.appendChild(cardWindEl);
+  cardBodyEl.appendChild(cardHumidEl);
   
   //append body to card and then container element
   cardEl.appendChild(cardBodyEl);
@@ -269,9 +273,6 @@ function cityFormSubmit(event) {
   var cityInput = cityInputEl.value.trim();
   if (cityInput) {
     getWeatherData(cityInput);
-    //saveSearchedCity(cityInput);
-    //displayCurrentData(city, data);
-    //displayForecastData(data);
   }
 }
 
