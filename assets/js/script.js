@@ -132,8 +132,8 @@ function saveCitiesToLocalStorage(cities) {
 var displaySearchedCities = function (city) {
   var cityCardEl = document.createElement("div");
   cityCardEl.setAttribute("class", "card");
-  var cityCardNameEl = document.createElement("div");
-  cityCardNameEl.setAttribute("class", "card-body searched-city");
+  var cityCardNameEl = document.createElement("button");
+  cityCardNameEl.setAttribute("class", "btn btn-outline-dark");
   cityCardNameEl.textContent = city;
 
   cityCardEl.appendChild(cityCardNameEl);
